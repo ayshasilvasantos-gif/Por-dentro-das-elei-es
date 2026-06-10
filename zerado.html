@@ -106,6 +106,28 @@
     border: none;
     border-radius: 12px;
 }
+        .subtitulo-divisor {
+    display: flex;
+    align-items: center;
+    margin: 40px 0 20px;
+}
+
+.subtitulo-divisor h2 {
+    margin: 0;
+    color: var(--green-theme);
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.subtitulo-divisor::after {
+    content: "";
+    flex: 1;
+    height: 2px;
+    background-color: #ccc;
+    margin-left: 15px;
+}
+        
     </style>
 </head>
 <body>
@@ -150,7 +172,9 @@
             allowfullscreen>
         </iframe>
     </section>
-
+<div class="subtitulo-divisor">
+    <h2>SUBTÍTULO</h2>
+</div>
 </main>
 
 <script>
