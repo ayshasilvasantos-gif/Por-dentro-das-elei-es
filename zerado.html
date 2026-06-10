@@ -127,7 +127,29 @@
     background-color: #ccc;
     margin-left: 15px;
 }
-        
+        .audio-card {
+    background: #f5f5f5;
+    border-left: 5px solid var(--green-theme);
+    padding: 20px;
+    border-radius: 8px;
+    margin: 30px 0;
+    position: relative;
+    z-index: 2000;
+}
+
+.audio-card h3 {
+    margin-top: 0;
+    color: var(--green-theme);
+}
+
+.audio-card audio {
+    width: 100%;
+    position: relative;
+    z-index: 2001;
+}
+.overlay {
+    pointer-events: none;
+}
     </style>
 </head>
 <body>
@@ -182,6 +204,12 @@
             que influenciam as decisões dos eleitores.
         </p>
     </section>
+    <section class="audio-card">
+    <h3>🎙️ Entrevista Completa</h3>
+    <audio controls>
+        <source src="https://drive.google.com/file/d/10hQiXaLm65_LPgpsAN_dJCJdhK_bGxRE/preview" type="audio/mpeg">
+    </audio>
+</section>
 </main>
 
 <script>
