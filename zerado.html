@@ -103,22 +103,5 @@
 <main class="container">
     </main>
 
-<script>
-    const btn = document.getElementById('menu-btn');
-    const menu = document.getElementById('nav-menu');
-    const overlay = document.getElementById('overlay');
-
-    function toggleMenu() {
-        btn.classList.toggle('open');
-        menu.classList.toggle('active');
-        overlay.classList.toggle('active');
-        document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : 'auto';
-    }
-
-    btn.addEventListener('click', toggleMenu);
-    overlay.addEventListener('click', toggleMenu);
-    document.querySelectorAll('.contact-button').forEach(link => link.addEventListener('click', toggleMenu));
-</script>
-
 </body>
 </html>
