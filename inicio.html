@@ -4,13 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Por dentro das eleições</title>
-    <link class="icon" type="image/png" href="midia/fotos/logouel2.png">
     <style>
         :root {
             --green-theme: #006b33; 
             --green-dark: #004d25;
             --text-color: #333;
-            --light-gray: #ddd;
         }
 
         body {
@@ -18,7 +16,6 @@
             margin: 0;
             padding: 0;
             color: var(--text-color);
-            line-height: 1.6;
             background-color: #fff;
             overflow-x: hidden;
         }
@@ -37,215 +34,142 @@
             box-shadow: 0 2px 10px rgba(0,0,0,0.2);
         }
 
-        .logo-container {
-            height: 45px;
-            display: flex;
-            align-items: center;
-        }
-
-        .logo-container img {
-            height: 100%;
-            width: auto;
-        }
+        .logo-container { height: 45px; display: flex; align-items: center; }
+        .logo-container img { height: 100%; width: auto; }
 
         /* --- NAVEGAÇÃO DESKTOP --- */
-        .header-info {
-            display: flex;
-            gap: 10px;
-        }
-
+        .header-info { display: flex; gap: 10px; }
         .contact-button {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: white;
-            font-size: 11px;
-            text-transform: uppercase;
-            text-decoration: none;
-            padding: 8px 12px;
-            border-radius: 25px;
-            transition: all 0.3s ease;
+            display: flex; align-items: center; gap: 8px; color: white;
+            font-size: 11px; text-transform: uppercase; text-decoration: none;
+            padding: 8px 12px; border-radius: 25px; transition: all 0.3s ease;
         }
-
-        .contact-button:hover {
-            background: rgba(255, 255, 255, 0.2);
-        }
-
+        .contact-button:hover { background: rgba(255, 255, 255, 0.2); }
         .icon-circle {
-            width: 22px;
-            height: 22px;
-            background: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
+            width: 22px; height: 22px; background: white; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
         }
 
         /* --- MENU HAMBÚRGUER --- */
         .menu-toggle {
-            display: none;
-            flex-direction: column;
-            justify-content: space-around;
-            width: 30px;
-            height: 25px;
-            background: transparent;
-            border: none;
-            cursor: pointer;
-            padding: 0;
-            z-index: 1100;
+            display: none; flex-direction: column; justify-content: space-around;
+            width: 30px; height: 25px; background: transparent; border: none; cursor: pointer; padding: 0; z-index: 1100;
         }
-
-        .menu-toggle span {
-            width: 30px;
-            height: 3px;
-            background: white;
-            border-radius: 10px;
-            transition: all 0.3s linear;
-            position: relative;
-            transform-origin: 1px;
-        }
-
-        /* Animação para transformar em X */
+        .menu-toggle span { width: 30px; height: 3px; background: white; border-radius: 10px; transition: all 0.3s linear; transform-origin: 1px; }
         .menu-toggle.open span:nth-child(1) { transform: rotate(45deg); }
         .menu-toggle.open span:nth-child(2) { opacity: 0; transform: translateX(20px); }
         .menu-toggle.open span:nth-child(3) { transform: rotate(-45deg); }
 
         /* --- OVERLAY --- */
-        .overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.5);
-            z-index: 1050;
-        }
-
+        .overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1050; }
         .overlay.active { display: block; }
 
-        /* --- CONTEÚDO --- */
-        .container {
-            max-width: 900px; 
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-
-        .main-title {
-            font-size: 2.2rem;
-            color: var(--green-theme);
-            text-transform: uppercase;
-            font-weight: bold;
-        }
-
-        /* --- VÍDEO E QUIZ --- */
-        .video-box {
-            position: relative;
-            width: 100%;
-            aspect-ratio: 16 / 9; 
-            background-color: #000;
-            margin: 30px 0;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            overflow: hidden;
-            border-radius: 4px;
-        }
-
-        .video-box iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: 0;
-            margin: 0;
-            padding: 0;
-        }
-
-        /* AJUSTE DO QUIZ NO DESKTOP: Remove barras de rolagem dando fôlego vertical */
-        #quiz-urna {
-            aspect-ratio: auto;
-            height: 580px; 
-        }
-        
-        /* Botão Tela Cheia */
-        .fs-btn {
-            position: absolute;
-            bottom: 10px;
-            right: 10px;
-            z-index: 20;
-            background: rgba(0,0,0,0.6);
-            color: white;
-            border: none;
-            padding: 8px;
-            cursor: pointer;
-            border-radius: 4px;
-            font-size: 10px;
-        }
-
-        .section-header-container {
-            display: flex;
-            align-items: center;
-            margin-bottom: 12px;
-        }
-
-        .section-header-text {
-            font-size: 0.85rem;
-            font-weight: bold;
-            color: var(--green-theme);
-            text-transform: uppercase;
-            padding-right: 15px;
-        }
-
-        .section-header-container::after {
-            content: "";
-            flex: 1;
-            height: 1px;
-            background: var(--light-gray);
-        }
-
-        footer {
-            background-color: var(--green-theme);
-            height: 50px;
-            margin-top: 50px;
-        }
+        /* --- CONTEÚDO BASE --- */
+        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
 
         /* --- RESPONSIVIDADE MOBILE --- */
         @media (max-width: 768px) {
             .menu-toggle { display: flex; }
+            
             .header-info {
-                position: fixed;
-                right: -100%;
-                top: 0;
-                height: 100vh;
-                width: 260px;
-                background-color: var(--green-dark);
-                flex-direction: column;
-                padding: 80px 20px;
-                transition: right 0.4s ease-in-out;
-                z-index: 1060;
-                box-shadow: -5px 0 15px rgba(0,0,0,0.3);
+                position: fixed; right: -100%; top: 0; height: 100vh; width: 260px;
+                background-color: var(--green-dark); flex-direction: column; padding: 80px 20px;
+                transition: right 0.4s ease-in-out; z-index: 1060; box-shadow: -5px 0 15px rgba(0,0,0,0.3);
             }
+            
             .header-info.active { right: 0; }
-            .contact-button { font-size: 14px; padding: 15px; width: 100%; border-radius: 8px; background: rgba(255, 255, 255, 0.05); margin-bottom: 10px; }
-            .main-title { font-size: 1.6rem; }
-
-            /* AJUSTE DO VÍDEO NO MOBILE */
-            .video-box:not(#quiz-urna) iframe {
-                top: -24px; 
-                height: calc(100% + 35px); 
-            }
-
-            /* AJUSTE DA URNA NO MOBILE: Redimensiona verticalmente para sumir com o scroll */
-            #quiz-urna {
-                aspect-ratio: auto;
-                height: 680px; 
-            }
-            #quiz-urna iframe {
-                top: 0;
-                height: 100%;
-            }
+            
+            .contact-button { font-size: 14px; padding: 15px; width: 100%; border-radius: 8px; margin-bottom: 10px; }
         }
+        .intro {
+ text-align: left;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.intro h1 {
+  font-size: 2.5rem;           
+    color: var(--green-theme);
+    margin-bottom: 24px;
+    font-weight: 800;            
+    line-height: 1.25;          
+    letter-spacing: -0.5px;      
+    text-transform: none;
+}
+
+.intro p {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: #555;
+    text-align: justify;
+    word-break: break-word;
+}
+        .video-section {
+    margin-top: 40px;
+    width: 100%;
+}
+
+.video-section iframe {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: none;
+    border-radius: 12px;
+}
+        .subtitulo-divisor {
+    display: flex;
+    align-items: center;
+    margin: 40px 0 20px;
+            width: 100%;
+            box-sizing: border-box;
+}
+
+.subtitulo-divisor h2 {
+    margin: 0;
+    color: var(--green-theme);
+    font-size: 1.5rem;
+    text-transform: none;
+    white-space: normal;
+}
+
+.subtitulo-divisor::after {
+    content: "";
+    flex: 1;
+    height: 2px;
+    background-color: #ccc;
+    margin-left: 15px;
+    min-width: 20px;
+}
+        .audio-card {
+    background: #f5f5f5;
+    border-left: 5px solid var(--green-theme);
+    padding: 20px;
+    border-radius: 8px;
+    margin: 30px 0;
+}
+
+.audio-card h3 {
+    margin-top: 0;
+    color: var(--green-theme);
+}
+
+.audio-card audio {
+    width: 100%;
+}
+.overlay {
+    pointer-events: none;
+}
+        .image-section {
+    margin-top: 40px;
+    width: 100%;
+}
+
+.image-section img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    display: block;
+    border-radius: 12px;
+}
     </style>
 </head>
 <body>
@@ -254,13 +178,11 @@
 
 <header>
     <div class="logo-container">
-       <img src="midia/fotos/logouel.png" alt="Logo UEL">
+       <img src="UEL-horizontal-completa-branca.png" alt="Logo UEL">
     </div>
 
     <button class="menu-toggle" id="menu-btn">
-        <span></span>
-        <span></span>
-        <span></span>
+        <span></span><span></span><span></span>
     </button>
 
     <nav class="header-info" id="nav-menu">
@@ -270,6 +192,139 @@
     </nav>
 </header>
 
+<main class="container">
+
+    <section class="intro">
+        <h1>Por dentro das eleições: Como funcionam os bastidores do voto no Brasil</h1>
+        <p>
+            Da preparação das urnas aos testes de segurança e treinamento das equipes, as eleições brasileiras mobilizam uma estrutura que começa meses antes do primeiro voto.
+        </p>
+     </section>
+
+         <div class="subtitulo-divisor">   
+</div>
+     <section class="intro">
+         <p>
+            Antes da urna ser ligada no dia da eleição, equipes já passaram meses organizando transporte, testes, treinamento e segurança para que tudo funcione nas seções eleitorais.
+Quando chega o dia da votação, o processo parece simples: apresentar um documento, votar e esperar o resultado. Mas, por trás de poucos segundos diante da urna eletrônica, existe uma operação que começa muito antes.
+Planejamento, transporte de equipamentos, testes de segurança, treinamento de equipes e fiscalização fazem parte da preparação das eleições em todo o país. A votação dura segundos. A preparação leva meses. 
+        </p>
+    </section>
+ <section class="video-section">
+        <iframe
+            src="https://www.youtube.com/embed/sXruCLjjJcM"
+            title="Vídeo do YouTube"
+            allowfullscreen>
+        </iframe>
+    </section>
+<div class="subtitulo-divisor">
+    <h2>O processo eleitoral</h2>
+</div>
+      <section class="intro">
+        <p>
+           As eleições não começam no dia da votação, e também não terminam quando os resultados são divulgados.
+Na prática, a organização das eleições quase não para. Assim que uma eleição acaba, outra já começa a ser organizada. O planejamento envolve calendário, tecnologia, logística e decisões políticas que acontecem ao longo de meses.
+Nas eleições de 2026, por exemplo, algumas etapas começaram ainda em outubro de 2025. Foi quando entidades fiscalizadoras receberam acesso antecipado aos sistemas eleitorais para acompanhar testes e verificar o funcionamento das plataformas usadas pelo Tribunal Superior Eleitoral (TSE).
+Cada etapa segue datas definidas pela Justiça Eleitoral.
+Entre março e abril de 2026 aconteceu a  janela partidária, período em que parlamentares puderam trocar de partido para disputar as eleições. Já o prazo final para filiação partidária e definição do domicílio eleitoral terminou em abril, seis meses antes do primeiro turno.
+Enquanto os eleitores acompanham campanhas e debates, equipes trabalham nos bastidores para cumprir os prazos da eleição.
+
+        </p>
+    </section>
+    <section class="audio-card">
+    <h3>🎙️ Entrevista Com Especialista</h3>
+    <audio controls>
+        <source src="ENTREVISTA - RAFAEL MORAES (1).mp3" type="audio/mpeg">
+    </audio>
+</section>
+    
+    <div class="subtitulo-divisor">   
+    <h2>Como funcionam as eleições</h2>
+</div>
+      <section class="intro">
+        <p>
+           O momento da votação é só a parte mais visível das eleições.
+Antes de chegar às seções eleitorais, as urnas eletrônicas passam por preparação técnica, testes e auditorias. Equipes da Justiça Eleitoral organizam locais de votação, cadastro de eleitores e coordenação das equipes em diferentes regiões do país.
+Para o eleitor, votar pode levar poucos minutos. Antes disso, urnas já passaram por testes, equipes foram treinadas e locais de votação precisam ser organizados.
+A urna eletrônica é a parte mais conhecida das eleições para a maioria dos eleitores. Ela registra e contabiliza os votos digitalmente, mas também depende de uma rede de suporte técnico e fiscalização que pouca gente vê.
+        </p>
+    </section>
+    
+      <div class="subtitulo-divisor">
+    <h2>Treinamento das equipes</h2>
+</div>
+      <section class="intro">
+        <p>
+           Além da tecnologia, as eleições dependem diretamente das pessoas que trabalham no processo.
+Mesários, técnicos e outros colaboradores recebem orientações antes da votação para saber como agir em diferentes situações durante o dia da eleição.
+Para quem participa desses treinamentos, o contato também ajuda a aproximar o eleitor dos bastidores das eleições, uma parte do processo que normalmente passa despercebida.
+Ricardo Pereira, servidor do TSE, afirma que muita gente participa da votação sem conhecer os bastidores da preparação eleitoral: “Normalmente o eleitor chega, vê a urna pronta para votar e não conhece os bastidores”.
+Ele também destaca o interesse das pessoas em entender como funciona a preparação das eleições antes do dia da votação.
+Os mesários organizam as seções eleitorais. Eles conferem documentos, liberam os eleitores para votar e ajudam no controle das filas e no atendimento.
+Já as equipes técnicas atuam nos bastidores. São elas que acompanham a instalação das urnas, fazem manutenção dos equipamentos e prestam suporte caso algum problema aconteça durante a votação.
+Os treinamentos orientam as equipes sobre filas, problemas técnicos e atendimento aos eleitores no dia da votação.
+        </p>
+    </section>
+    
+     <section class="audio-card">
+    <h3>🎙️ Seções Eleitorais</h3>
+    <audio controls>
+        <source src="SEÇÕES ELEITORAIS.mp3" type="audio/mpeg">
+    </audio>
+</section>
+    
+      <div class="subtitulo-divisor">
+    <h2>Organização e logística</h2>
+</div>
+      <section class="intro">
+        <p>
+            Fazer uma eleição funcionar em todo o território brasileiro exige uma operação logística de grande escala.
+Mas, nos meses que antecedem a votação, a rotina também se intensifica dentro da Justiça Eleitoral.
+Ricardo descreve esse período como um dos mais corridos antes da eleição: “É um período bastante complicado”. Com o fechamento do cadastro eleitoral, aumenta a procura de eleitores nos cartórios enquanto as equipes seguem na preparação da votação.
+As urnas eletrônicas precisam chegar a milhares de locais de votação, incluindo cidades pequenas, áreas rurais e regiões de difícil acesso. Para isso, o transporte dos equipamentos começa dias antes da eleição.
+Além das urnas, também é necessário organizar documentos, equipes, locais de votação e cronogramas de trabalho.
+As equipes também acompanham o transporte para garantir que as urnas cheguem corretamente às seções eleitorais.
+Além da logística, a Justiça Eleitoral também divulga campanhas de orientação ao eleitor. Em 2026, o calendário eleitoral também incluiu a divulgação de conteúdos informativos em rádio e televisão para explicar regras da eleição e incentivar a participação política.
+O calendário ainda define prazos importantes para os eleitores, como regularização do título, transferência de domicílio eleitoral e revisão cadastral.
+O prazo final para essas alterações foi estabelecido em 6 de maio de 2026. Depois dessa data, os serviços foram suspensos temporariamente para a organização da votação.
+
+        </p>
+    </section>
+      <div class="subtitulo-divisor">
+    <h2>Tecnologia e segurança</h2>
+</div>
+      <section class="intro">
+        <p>
+            A tecnologia é uma das bases do sistema eleitoral brasileiro.
+Antes de serem usadas nas eleições, as urnas eletrônicas passam por diferentes etapas de teste e verificação. Uma das principais é o Teste Público de Segurança, realizado para identificar possíveis falhas nos sistemas eleitorais.
+Em 2025, os testes aconteceram entre os dias 1º e 5 de dezembro. Depois disso, o calendário eleitoral também previu uma nova rodada de testes em maio de 2026 para confirmar as correções feitas após as análises anteriores.
+Além dos testes técnicos, o sistema também passa por auditorias e acompanhamento de entidades fiscalizadoras.
+Essas instituições recebem acesso antecipado aos sistemas eleitorais e podem acompanhar parte do funcionamento das plataformas usadas nas eleições.
+A ideia é permitir que diferentes órgãos acompanhem os testes e fiscalizem parte das etapas antes da votação.
+        </p>
+          
+          <section class="image-section">
+    <img src="infografico.jfif" alt="Descrição da imagem">
+</section>
+          
+    </section>
+      <div class="subtitulo-divisor">
+    <h2>Um processo que vai além das urnas</h2>
+</div>
+      <section class="intro">
+        <p>
+           Embora o eleitor tenha contato direto apenas com o momento da votação, as eleições envolvem muito mais do que alguns minutos diante da urna eletrônica.
+Por trás de cada voto existe uma estrutura que funciona durante meses: equipes treinadas, transporte de equipamentos, testes de segurança, fiscalização e planejamento.
+Grande parte desse trabalho acontece longe das seções eleitorais e quase passa despercebida pelos eleitores.No fim das contas, a urna é só a parte visível de um processo muito maior. 
+No dia da votação, o eleitor vê apenas alguns segundos da eleição diante da urna. Nos bastidores, porém, meses de preparação antecedem esse momento.
+        </p>
+    </section>
+
+
+
+    
+</main>
+    
 <script>
     const btn = document.getElementById('menu-btn');
     const menu = document.getElementById('nav-menu');
@@ -279,29 +334,12 @@
         btn.classList.toggle('open');
         menu.classList.toggle('active');
         overlay.classList.toggle('active');
-        if(menu.classList.contains('active')) {
-            document.body.style.overflow = 'hidden';
-        } else {
-            document.body.style.overflow = 'auto';
-        }
+        document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : 'auto';
     }
 
     btn.addEventListener('click', toggleMenu);
     overlay.addEventListener('click', toggleMenu);
-
-    document.querySelectorAll('.contact-button').forEach(link => {
-        link.addEventListener('click', toggleMenu);
-    });
-
-    // Função Tela Cheia
-    function toggleFS(id) {
-        const elem = document.getElementById(id);
-        if (!document.fullscreenElement) {
-            elem.requestFullscreen();
-        } else {
-            document.exitFullscreen();
-        }
-    }
+    document.querySelectorAll('.contact-button').forEach(link => link.addEventListener('click', toggleMenu));
 </script>
 
 </body>
