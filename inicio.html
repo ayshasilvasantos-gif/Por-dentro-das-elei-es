@@ -231,16 +231,26 @@
     object-fit: cover;
 }
 
-/* Responsividade para telas menores */
-@media (max-width: 900px) {
+@media (max-width: 768px) {
     .container-shorts {
-        grid-template-columns: repeat(3, 1fr); /* 3 colunas em tablets */
+        display: flex; /* Transforma o grid em uma linha contínua */
+        overflow-x: auto; /* Ativa o deslizamento lateral com o dedo */
+        scroll-snap-type: x mandatory; /* Cria o efeito "ímã" ao soltar o card */
+        scroll-behavior: smooth;
+        gap: 15px;
+        padding: 10px 40px; /* Margem interna para revelar pedaços dos cards vizinhos */
+        box-sizing: border-box;
+        -webkit-overflow-scrolling: touch;
     }
-}
 
-@media (max-width: 600px) {
-    .container-shorts {
-        grid-template-columns: repeat(2, 1fr); /* 2 colunas em celulares */
+    /* Oculta a barra de rolagem horizontal padrão para o design ficar limpo */
+    .container-shorts::-webkit-scrollbar {
+        display: none;
+    }
+
+    .card-short {
+        flex: 0 0 75%; /* Cada vídeo ocupará 75% da largura da tela */
+        scroll-snap-align: center; /* Centraliza o card focado perfeitamente */
     }
 }
     </style>
