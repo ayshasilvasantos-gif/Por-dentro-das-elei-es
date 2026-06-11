@@ -243,14 +243,27 @@
         -webkit-overflow-scrolling: touch;
     }
 
-    /* Oculta a barra de rolagem horizontal padrão para o design ficar limpo */
     .container-shorts::-webkit-scrollbar {
-        display: none;
+        display: block !important; /* Garante a exibição da barra */
+        height: 5px; /* Deixa a barrinha bem fina e elegante */
+    }
+  .container-shorts::-webkit-scrollbar-track {
+        background: #e0e0e0; 
+        border-radius: 10px;
+        margin: 0 40px; /* Alinha o tamanho do trilho com os vídeos */
+    }
+
+    /* O indicador que mexe conforme arrasta (cursor) */
+    .container-shorts::-webkit-scrollbar-thumb {
+        background: var(--green-theme); /* Usa a cor verde do seu tema */
+        border-radius: 10px;
     }
 
     .card-short {
-        flex: 0 0 75%; /* Cada vídeo ocupará 75% da largura da tela */
-        scroll-snap-align: center; /* Centraliza o card focado perfeitamente */
+        flex: 0 0 75%; /* Deixa o tamanho exato para alinhar e cortar as pontas */
+        scroll-snap-align: center; /* Mantém centralizado */
+        transform: none !important; /* Remove qualquer efeito de tamanho diferente */
+        opacity: 1 !important; /* Mantém todos com o brilho igual */
     }
 }
     </style>
