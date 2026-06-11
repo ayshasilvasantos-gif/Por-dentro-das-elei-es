@@ -188,75 +188,59 @@
     font-size: 14px;
 }
 
+.titulo-galeria {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    margin-bottom: 25px;
+}
+
+.titulo-galeria h2 {
+    font-size: 28px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.titulo-galeria p {
+    color: #666;
+    font-size: 14px;
+}
+
 /* Container que alinha os 5 vídeos em colunas */
 .container-shorts {
     display: grid;
     grid-template-columns: repeat(5, 1fr); /* 5 colunas iguais */
-    gap: 15px; /* Espaço entre os cards */
+    gap: 15px; /* Espaço entre os vídeos */
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
-/* Estilo individual de cada card */
+/* Estilo individual de cada bloco de vídeo */
 .card-short {
     position: relative;
     border-radius: 12px;
     overflow: hidden; 
-    aspect-ratio: 9 / 16; /* Mantém a proporção vertical de celular */
+    aspect-ratio: 9 / 16; /* Força o formato vertical do celular */
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
 }
 
-.card-short:hover {
-    transform: scale(1.02); /* Leve zoom ao passar o mouse */
-}
-
-/* Estilo da imagem interna */
-.card-short img {
+/* Força o player do YouTube a preencher todo o espaço do card */
+.card-short iframe {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-/* Ícone do play centralizado */
-.icone-play {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 50px;
-    height: 50px;
-    background-color: #ff0000;
-    border-radius: 50%;
-    z-index: 2;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Triângulo do play */
-.icone-play::after {
-    content: '';
-    display: block;
-    width: 0;
-    height: 0;
-    border-top: 10px solid transparent;
-    border-bottom: 10px solid transparent;
-    border-left: 16px solid white;
-    margin-left: 4px;
-}
-
 /* Responsividade para telas menores */
 @media (max-width: 900px) {
     .container-shorts {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(3, 1fr); /* 3 colunas em tablets */
     }
 }
 
 @media (max-width: 600px) {
     .container-shorts {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr); /* 2 colunas em celulares */
     }
 }
     </style>
@@ -413,44 +397,29 @@ No dia da votação, o eleitor vê apenas alguns segundos da eleição diante da
 </p>
 <section class="secao-shorts">
     <div class="titulo-galeria">
-        <h2>YouTube Shorts</h2>
-        <p>Conheça a qualidade dos nossos produtos</p>
+        <h2>Videos verticais </h2>
+        <p>conheça mais </p>
     </div>
 
     <div class="container-shorts">
         <div class="card-short">
-            <a href="LINK_DO_SEU_VIDEO_1" target="_blank">
-                <img src="B-gVWfNEijY" alt="Vídeo 1">
-                <div class="icone-play"></div>
-            </a>
+            <iframe src="https://www.youtube.com/embed/B-gVWfNEijY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
 
         <div class="card-short">
-            <a href="LINK_DO_SEU_VIDEO_2" target="_blank">
-                <img src="SUA_IMAGEM_DE_CAPA_2.jpg" alt="Vídeo 2">
-                <div class="icone-play"></div>
-            </a>
+            <iframe src="https://www.youtube.com/embed/B-gVWfNEijY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
 
         <div class="card-short">
-            <a href="LINK_DO_SEU_VIDEO_3" target="_blank">
-                <img src="SUA_IMAGEM_DE_CAPA_3.jpg" alt="Vídeo 3">
-                <div class="icone-play"></div>
-            </a>
+            <iframe src="https://www.youtube.com/embed/B-gVWfNEijY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
 
         <div class="card-short">
-            <a href="LINK_DO_SEU_VIDEO_4" target="_blank">
-                <img src="SUA_IMAGEM_DE_CAPA_4.jpg" alt="Vídeo 4">
-                <div class="icone-play"></div>
-            </a>
+            <iframe src="https://www.youtube.com/embed/B-gVWfNEijY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
 
         <div class="card-short">
-            <a href="LINK_DO_SEU_VIDEO_5" target="_blank">
-                <img src="SUA_IMAGEM_DE_CAPA_5.jpg" alt="Vídeo 5">
-                <div class="icone-play"></div>
-            </a>
+            <iframe src="https://www.youtube.com/embed/B-gVWfNEijY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
     </div>
 </section>
