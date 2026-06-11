@@ -299,6 +299,85 @@
         height: 500px; /* Reduz um pouco a altura no celular para melhor usabilidade */
     }
 }
+
+        .secao-equipe {
+    background-color: #f9f9f9;
+    padding: 60px 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+}
+
+.container-equipe {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.titulo-equipe {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.subtitulo-equipe {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+/* Grid que organiza os cards */
+.grid-equipe {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    justify-content: center;
+}
+
+/* Estilo do Card Individual */
+.card-membro {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 30px 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efeito ao passar o mouse */
+.card-membro:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Foto do Integrante */
+.foto-membro img {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border: 4px solid #eceff1;
+}
+
+/* Textos dentro do Card */
+.nome-membro {
+    font-size: 1.4rem;
+    color: #222;
+    margin-bottom: 5px;
+}
+
+.cargo-membro {
+    font-size: 0.95rem;
+    color: #007bff; /* Cor de destaque (Azul) */
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+.bio-membro {
+    font-size: 0.9rem;
+    color: #555;
+    line-repeat: 1.5;
+}
     </style>
 </head>
 <body>
@@ -341,7 +420,7 @@ Planejamento, transporte de equipamentos, testes de segurança, treinamento de e
     </section>
  <section class="video-section">
         <iframe
-            src="https://www.youtube.com/embed/sXruCLjjJcM"
+            src="https://www.youtube.com/embed/mYz5Yhs22BY"
             title="Vídeo do YouTube"
             allowfullscreen>
         </iframe>
@@ -459,23 +538,23 @@ No dia da votação, o eleitor vê apenas alguns segundos da eleição diante da
 
     <div class="container-shorts">
         <div class="card-short">
-            <iframe src="https://www.youtube.com/embed/B-gVWfNEijY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/0su84ML6iG4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
 
         <div class="card-short">
-            <iframe src="https://www.youtube.com/embed/B-gVWfNEijY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/Jhz_gKGFI_8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
 
         <div class="card-short">
-            <iframe src="https://www.youtube.com/embed/B-gVWfNEijY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/UyADzeswpIk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
 
         <div class="card-short">
-            <iframe src="https://www.youtube.com/embed/B-gVWfNEijY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/9S0IGSxQdUc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
 
         <div class="card-short">
-            <iframe src="https://www.youtube.com/embed/B-gVWfNEijY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/dMOga2IWzBc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
     </div>
 </section>
@@ -489,7 +568,91 @@ No dia da votação, o eleitor vê apenas alguns segundos da eleição diante da
         <iframe src="https://ayshanicoll.github.io/site/testequiz.html" title="Quiz Eleições" allowfullscreen></iframe>
     </div>
 </section>
-    
+    <section class="secao-equipe">
+    <div class="container-equipe">
+        <h2 class="titulo-equipe">Nossa Equipe</h2>
+        <p class="subtitulo-equipe">Produzido por estudantes de Jornalismo da UEL.</p>
+        
+        <div class="grid-equipe">
+            
+            <div class="card-membro">
+                <div class="foto-membro">
+                    <img src="https://via.placeholder.com/150" alt="Foto do Integrante">
+                </div>
+                <h3 class="nome-membro">Manoel Cardeal da Costa Neto</h3>
+                <p class="cargo-membro">Líder</p>
+            </div>
+
+            <div class="card-membro">
+                <div class="foto-membro">
+                    <img src="https://via.placeholder.com/150" alt="Foto do Integrante">
+                </div>
+                <h3 class="nome-membro">Nome</h3>
+                <p class="cargo-membro">Função</p>
+            </div>
+
+            <div class="card-membro">
+                <div class="foto-membro">
+                    <img src="https://via.placeholder.com/150" alt="Foto do Integrante">
+                </div>
+                <h3 class="nome-membro">Nome</h3>
+                <p class="cargo-membro">Função</p>
+            </div>
+            
+            <div class="card-membro">
+                <div class="foto-membro">
+                    <img src="https://via.placeholder.com/150" alt="Foto do Integrante">
+                </div>
+                <h3 class="nome-membro">Nome</h3>
+                <p class="cargo-membro">Função</p>
+            </div>
+
+            <div class="card-membro">
+                <div class="foto-membro">
+                    <img src="https://via.placeholder.com/150" alt="Foto do Integrante">
+                </div>
+                <h3 class="nome-membro">Nome</h3>
+                <p class="cargo-membro">Funça</p>
+            </div>
+
+            <div class="card-membro">
+                <div class="foto-membro">
+                    <img src="https://via.placeholder.com/150" alt="Foto do Integrante">
+                </div>
+                <h3 class="nome-membro">Nome</h3>
+                <p class="cargo-membro">Função</p>
+            </div>
+           <div class="card-membro">
+                <div class="foto-membro">
+                    <img src="https://via.placeholder.com/150" alt="Foto do Integrante">
+                </div>
+                <h3 class="nome-membro">nome</h3>
+                <p class="cargo-membro">Função</p>
+            </div>
+            <div class="card-membro">
+                <div class="foto-membro">
+                    <img src="https://via.placeholder.com/150" alt="Foto do Integrante">
+                </div>
+                <h3 class="nome-membro">Nome</h3>
+                <p class="cargo-membro">Função</p>
+            </div>
+            <div class="card-membro">
+                <div class="foto-membro">
+                    <img src="https://via.placeholder.com/150" alt="Foto do Integrante">
+                </div>
+                <h3 class="nome-membro">Nome </h3>
+                <p class="cargo-membro">Função</p>
+            </div>
+            <div class="card-membro">
+                <div class="foto-membro">
+                    <img src="https://via.placeholder.com/150" alt="Foto do Integrante">
+                </div>
+                <h3 class="nome-membro">Nome</h3>
+                <p class="cargo-membro">Função</p>
+            </div>
+        </div>
+    </div>
+</section>
 </main>
     
 <script>
